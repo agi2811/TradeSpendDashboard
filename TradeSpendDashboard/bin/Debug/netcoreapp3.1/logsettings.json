@@ -1,0 +1,42 @@
+{
+  "Serilog": {
+    "Using": [ "Serilog.Sinks.Console" ],
+    "LevelSwitches": { "$controlSwitch": "Verbose" },
+    "MinimumLevel": {
+      "Default": "Info",
+      "Override": {
+        "Microsoft": "Info",
+        "System": "Warning",
+        "Microsoft.AspNetCore.Authentication": "Info"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "Seq",
+        "Args": {
+          "serverUrl": "http://logs.analytics.ridone-alfatah.site",
+          "apiKey": "rbz4cFfwFbFw1twKs83HH"
+        }
+      },
+      {
+        "Name": "File",
+        "Args": {
+          "path": "D:\\Application\\TradeSpend\\TradeSpend.log",
+          "fileSizeLimitBytes": 100000000, //100MB
+          "rollOnFileSizeLimit": true,
+          "shared": true,
+          "flushToDiskInterval": 1,
+          "outputTemplate": "{Timestamp:o} [{Level:u3}] ({Application}/{MachineName}/{ThreadId}) {Message}{NewLine}{Exception}"
+        }
+      },
+      {
+        "Name": "Console",
+        "Args": {
+          //"outputTemplate": "[{Timestamp:HH:mm:ss} {SourceContext} [{Level}] {Message}{NewLine}{Exception}",
+          "outputTemplate": "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}",
+          "theme": "Serilog.Sinks.SystemConsole.Themes.SystemConsoleTheme::Literate, Serilog.Sinks.Console"
+        }
+      }
+    ]
+  }
+}
