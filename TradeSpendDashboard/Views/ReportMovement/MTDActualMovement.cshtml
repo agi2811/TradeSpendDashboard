@@ -1,0 +1,268 @@
+﻿<style>
+    .selectbox-field {
+        margin-bottom: -7px !important;
+        margin-top: -7px !important;
+    }
+
+    .right-side {
+        position: absolute;
+        right: 1px;
+        top: 6px;
+    }
+
+    #tblReport, #tblHistory {
+        max-height: 840px;
+    }
+</style>
+
+<input type="text" id="CurrentMonth" class="d-none" name="CurrentMonth" value="@ViewBag.CurrentMonth" />
+<input type="text" id="CurrentYear" class="d-none" name="CurrentYear" value="@ViewBag.CurrentYear" />
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-sm-block">
+        <h4>MTD Actual Movement & Bridging</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Source</h5>
+                <div class="form-group row">
+                    <div class="col-12 col-md-2" style="padding-top:6px">
+                        <div class="form-group row">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" checked value="DataSource">
+                                <label class="form-check-label" for="inlineRadio1">Data Source</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Snapshot">
+                                <label class="form-check-label" for="inlineRadio2">Snapshot</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-8">
+                        <div id="divSnapshotName" style="visibility: hidden">
+                            <div class="form-group row">
+
+                                <label for="dxSelectYear" class="col-md-2 col-md-2 col-form-label">Snapshot Name</label>
+                                <div class="col-md-6 col-md-6">
+                                    <div id="dxSelectSnapshot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@*<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-6">
+                    <h5 class="card-title">Source</h5>
+                    <div class="form-group row">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" checked value="DataSource">
+                            <label class="form-check-label" for="inlineRadio1">Data Source</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Snapshot">
+                            <label class="form-check-label" for="inlineRadio2">Snapshot</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label for="dxSelectYear" class="col-xs-8 col-sm-8 col-md-3 col-xl-3 col-form-label">Snapshot Name</label>
+                        <div class="col-xs-4 col-sm-4 col-md-9 col-xl-9">
+                            <div id="dxSelectSnapshot"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+
+        <div class="card">
+            <div class="card-body">
+                <div id="divSnapshotName" style="visibility: hidden">
+                    <h5 class="card-title"></h5>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 style="text-align:center" class="card-title">Actual</h5>
+                <div class="form-group row">
+                    <label for="dxSelectYear" class="col-xs-8 col-sm-8 col-md-2 col-xl-2 col-form-label">Year</label>
+                    <div class="col-xs-9 col-sm-9 col-md-4 col-xl-4">
+                        <div id="dxSelectYear"></div>
+                    </div>
+                    <label for="dxSelectMonth" class="col-xs-8 col-sm-8 col-md-2 col-xl-2 col-form-label">Month</label>
+                    <div class="col-xs-9 col-sm-9 col-md-4 col-xl-4">
+                        <div id="dxSelectMonth"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 style="text-align:center" class="card-title">Outlook</h5>
+                <div class="form-group row">
+                    <label for="dxSelectYear" class="col-xs-8 col-sm-8 col-md-2 col-xl-2 col-form-label">Year</label>
+                    <div class="col-xs-9 col-sm-9 col-md-4 col-xl-4">
+                        <div id="dxSelectYearOutlook"></div>
+                    </div>
+                    <label for="dxSelectMonth" class="col-xs-8 col-sm-8 col-md-2 col-xl-2 col-form-label">Month</label>
+                    <div class="col-xs-9 col-sm-9 col-md-4 col-xl-4">
+                        <div id="dxSelectMonthOutlook"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 style="text-align:center" class="card-title">Budget</h5>
+                <div class="form-group row">
+                    <label for="dxSelectYear" class="col-xs-8 col-sm-8 col-md-2 col-xl-2 col-form-label">Year</label>
+                    <div class="col-xs-9 col-sm-9 col-md-10 col-xl-10">
+                        <div id="dxSelectYearBudget"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="divButtons" class="d-flex bd-highlight mb-3">
+    <div class="mr-auto p-2 bd-highlight">
+        @*<button type="button" class="btn btn-primary btn-lg" onclick="SnapshotMTDActual()">Snapshot</button>*@
+        <button type="button" class="btn btn-primary btn-lg" onclick="ShowModalSnapshot()">Snapshot</button>
+
+    </div>
+    <div class="p-2 bd-highlight">
+        <button type="button" class="btn btn-primary btn-lg" style="margin-right:8px" onclick="ApplyFilter()">Apply Filter</button>
+    </div>
+</div>
+
+
+<div class="modal fade" id="divModalSnapshot" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
+    <div>
+        <div class="modal-dialog" style="max-width:500px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="titleModalUpload"><i class="fa fa-list"></i>&nbsp;</h4>
+                </div>
+                <form class="form-horizontal" method="post" id="formUpload" data-toggle="validator" autocomplete="off">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" style="width:15%">Name </label>
+                            <div class="col-lg-9" style="width:85%">
+                                <input type="text" id="SnapshotName" name="SnapshotName" class="form-control" placeholder="Please Input Name">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer clearfix">
+                        <button type="button" id="btnSnapshot" class="btn btn-success" onclick="SnapshotMTDActual()"><i class="fa fa-save"></i> Snapshot</button>
+                        <button type="button" id="btnCancel" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-top:10px">
+    <div class="col-12 col-lg-6 d-flex">
+
+        <div id="gridContainerActual"></div>
+
+
+    </div>
+    <div class="col-12 col-lg-6 d-flex">
+
+        <div id="gridContainer2"></div>
+
+
+    </div>
+
+</div>
+<div class="row" style="margin-top:10px">
+
+    <div class="col-12 col-lg-6 d-flex">
+
+        <div id="gridContainer3"></div>
+
+
+    </div>
+    <div class="col-12 col-lg-6 d-flex">
+
+        <div id="gridContainer4"></div>
+
+
+    </div>
+
+</div>
+<div class="row" style="margin-top:10px">
+
+    <div class="col-12 col-lg-6 d-flex">
+
+        <div id="gridContainer5"></div>
+
+
+    </div>
+    <div class="col-12 col-lg-6 d-flex">
+
+        <div id="gridContainer6"></div>
+
+
+    </div>
+</div>
+
+
+<div class="row" style="margin-top:10px">
+
+    <div class="col-12 col-lg-6 d-flex">
+
+        <div id="gridContainer7"></div>
+
+
+    </div>
+    <div class="col-12 col-lg-6 d-flex">
+
+        <div id="gridContainer8"></div>
+
+
+    </div>
+</div>
+@section Scripts{
+    <script asp-append-version="true" type="text/javascript" src="~/Excel/exceljs.min.js"></script>
+    <script asp-append-version="true" type="text/javascript" src="~/Excel/FileSaver.min.js"></script>
+    <script asp-append-version="true" type="text/javascript" src="~/Report/MTDActualMovement.js"></script>
+}

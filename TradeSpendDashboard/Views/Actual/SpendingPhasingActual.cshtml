@@ -1,0 +1,32 @@
+﻿@{
+    int unixTimestamp = (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1, 0, 0, 0, 0))).TotalSeconds;
+}
+
+<input type="text" id="CurrentMonth" class="d-none" name="CurrentMonth" value="@ViewBag.CurrentMonth" />
+<input type="text" id="CurrentYear" class="d-none" name="CurrentYear" value="@ViewBag.CurrentYear" />
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h4>Spending Phasing Actual</h4>
+    </div>
+</div>
+
+@*<input style="display:none" id="RoleId" value="@ViewBag.RoleId" />
+    <input style="display:none" id="UserLogin" value="@ViewBag.UserLogin" />*@
+<div class="row">
+    <div class="col-12 col-lg-12 d-flex">
+        <div class="card flex-fill w-100">
+            <div class="card-body d-flex w-100 pt-5">
+                <div class="align-self-center chart chart-lg">
+                    <div id="gridContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script asp-append-version="true" type="text/javascript" src="~/Excel/exceljs.min.js"></script>
+    <script asp-append-version="true" type="text/javascript" src="~/Excel/FileSaver.min.js"></script>
+    <script asp-append-version="true" src="~/Transaction/Actual/SpendingPhasingActual.js"></script>
+}

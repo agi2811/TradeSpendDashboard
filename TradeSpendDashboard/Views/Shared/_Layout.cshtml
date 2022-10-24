@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @Html.Partial("_Header")
+</head>
+<!--
+  HOW TO USE:
+  data-theme: default (default), dark, light
+  data-layout: fluid (default), boxed
+  data-sidebar-position: left (default), right
+  data-sidebar-behavior: sticky (default), fixed, compact
+-->
+
+<body data-theme="colored" data-layout="fluid" data-sidebar-position="left" data-sidebar-behavior="sticky">
+    <div class="wrapper">
+        @Html.Partial("_SideNav")
+        <div class="main">
+            <nav id="top-navbar" class="navbar navbar-expand navbar-light navbar-bg fixed-top">
+                <a class="sidebar-toggle">
+                    <i class="fas fa-bars fa-lg align-self-center"></i>
+                </a>
+                <a href="~/Home" class="app-title text-black-50"><b>Trade Spend Dashboard <span class="d-none d-sm-inline"></span></b></a>
+                @Html.Partial("_TopNav")
+            </nav>
+
+            <main id="main-content" class="content mt-5">
+                <div class="container-fluid p-0">
+                    @RenderBody()
+                </div>
+            </main>
+
+            <footer class="footer">
+                @Html.Partial("_Footer")
+            </footer>
+        </div>
+    </div>
+
+     @*<script asp-append-version="true" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>*@
+
+    <script asp-append-version="true" src="~/js/jquery-3.4.1.js"></script>
+    <script asp-append-version="true" src="~/js/moment.js"></script>
+    <script asp-append-version="true" src="~/Plugins/bootstrap/js/bootstrap.js"></script>
+    <script asp-append-version="true" src="~/js/site.js"></script>
+    <script asp-append-version="true" src="~/Devextreme/js/dx.all.js"></script>
+    <script asp-append-version="true" src="~/js/dx.aspnet.data.js"></script>
+    <script asp-append-version="true" src="~/js/sweetalert2.all.min.js"></script>
+    <script asp-append-version="true" src="~/js/custom.js"></script>
+    <script asp-append-version="true" src="~/js/Moment/moment.js"></script>
+    <script asp-append-version="true" src="~/js/Moment/moment-timezone.js"></script>
+    <script asp-append-version="true" src="~/js/HighChart/highchart.js"></script>
+
+    @*<script asp-append-version="true" src="~/js/jqxscrollbar.js"></script>*@
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

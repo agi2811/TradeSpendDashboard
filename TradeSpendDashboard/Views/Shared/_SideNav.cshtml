@@ -1,0 +1,73 @@
+﻿<nav id="sidebar" class="sidebar collapsed">
+    <div class="sidebar-content js-simplebar">
+        <a class="sidebar-brand" href="~/Home">
+            <img src="~/Media/Img/logo.png" alt="Alternate Text" style="width:130px;">
+        </a>
+        <div style="height:100px;">
+            @Html.Raw(ViewBag.Menu)
+            @*<ul class="sidebar-nav">
+                <li class="sidebar-header">
+                    Main Menu
+                </li>
+                <li class="sidebar-item active">
+                    <a href="~/Home" class="sidebar-link">
+                        <i class="align-middle fas fa-sliders-h fa-lg"></i>
+                        <span class="align-middle">Dashboards</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#pages" data-toggle="collapse" class="sidebar-link collapsed">
+                        <i class="align-middle fas fa-database fa-lg"></i> <span class="align-middle">Master Data</span>
+                    </a>
+                    <ul id="pages" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/Users">Users</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/Reason">Reason</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/Mapping">Mapping</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/MaterialMT">Material MT</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/DC">DC</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/Document">Supporting Document GT</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/SupportingDocument">Supporting Document CN</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/SLA">SLA</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/MappingMTDirect">Mapping MT Direct</a></li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a href="#RequestGuideline" data-toggle="collapse" class="sidebar-link collapsed">
+                        <i class="align-middle fas fa-clipboard-list fa-lg"></i>
+                        <span class="align-middle">Request</span>
+                    </a>
+                    <ul id="RequestGuideline" class="sidebar-dropdown list-unstyled collapse" data-parent="#sidebar">
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/Wizard">Compose</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/MyTask">My Task</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/MyRequest">My Request</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/MyHistory">My History</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a href="#report" data-toggle="collapse" class="sidebar-link collapsed">
+                        <i class="align-middle fas fa-file-invoice fa-lg"></i>
+                        <span class="align-middle">Report</span>
+                    </a>
+                    <ul id="report" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/Report/DataClaimGT">Summary GT</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/Report/RekapMTReturn">Summary MT</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/ReportSLA/GT">SLA GT</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/ReportSLA/MT">SLA MT</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/ReportSummaryMaterial/SummaryMaterialGT">Summary Material GT</a></li>
+                        <li class="sidebar-item"><a class="sidebar-link" href="~/ReportSummaryMaterial/SummaryMaterialMT">Summary Material MT</a></li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a href="~/Home/Logout" class="sidebar-link">
+                        <i class="align-middle fas fa-power-off fa-lg"></i>
+                        <span class="align-middle">Sign-Out</span>
+                    </a>
+                </li>
+            </ul>*@
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,64 @@
+﻿<style>
+    .dx-dropdowneditor-input-overflow {
+        overflow-y: scroll;
+    }
+
+    .dx-dropdowneditor-input-wrapper {
+        height: 100%;
+        max-height: 120px;
+    }
+</style>
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h4>Master User</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-lg-12 d-flex">
+        <div class="card flex-fill w-100">
+            <div class="card-body d-flex w-100 pt-3">
+                <div class="align-self-center chart chart-lg">
+                    <div id="gridContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ModalMaster" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document" style="max-width:600px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="ModalLongTitle">User Info</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="form-horizontal" method="post" id="formUpload" data-toggle="validator">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label">User Name: <font color="red">*</font></label>
+                        <div id="dxSelectUser"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Role: <font color="red">*</font></label>
+                        <div id="dxSelectRole"></div>
+                    </div><br />
+                    <div class="form-group">
+                        <div id="dxTreeListSpandingRole"></div>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <div id="btnSave"></div>
+                    <div id="btnCancel"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script asp-append-version="true" src="~/Master/Users.js"></script>
+}

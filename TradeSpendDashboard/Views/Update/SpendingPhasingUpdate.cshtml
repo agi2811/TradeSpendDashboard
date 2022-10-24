@@ -1,0 +1,137 @@
+﻿@{
+    int unixTimestamp = (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1, 0, 0, 0, 0))).TotalSeconds;
+}
+
+<style>
+    .dx-dropdowneditor-input-overflow {
+        overflow-y: scroll;
+    }
+
+    .dx-dropdowneditor-input-wrapper {
+        height: 100%;
+        max-height: 120px;
+    }
+</style>
+
+<input type="text" id="CurrentMonth" class="d-none" name="CurrentMonth" value="@ViewBag.CurrentMonth" />
+<input type="text" id="CurrentYear" class="d-none" name="CurrentYear" value="@ViewBag.CurrentYear" />
+
+<div class="row mb-2 mb-xl-3">
+    <div class="col-auto d-none d-sm-block">
+        <h4>Spending Phasing Update</h4>
+    </div>
+</div>
+
+<form action="~/Update/DownloadTemplateSpendingPhasing" method="post" id="formDownload">
+    <input type="hidden" id="year" name="year" value="" />
+    <input type="hidden" id="month" name="month" value="" />
+    <input type="hidden" id="budgetOwner" name="budgetOwner" value="" />
+    <input type="hidden" id="categoryList" name="categoryList" value="" />
+    <input type="hidden" id="profitCenterList" name="profitCenterList" value="" />
+    <button type="submit" id="btnDownload" class="d-none"></button>
+</form>
+
+@*<input style="display:none" id="RoleId" value="@ViewBag.RoleId" />
+    <input style="display:none" id="UserLogin" value="@ViewBag.UserLogin" />*@
+<div class="row">
+    <div class="col-12 col-lg-12 d-flex">
+        <div class="card flex-fill w-100">
+            <div class="card-body d-flex w-100 pt-5">
+                <div class="align-self-center chart chart-lg">
+                    <div id="gridContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="divModalUpload" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
+    <div>
+        <div class="modal-dialog" style="max-width:500px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="titleModalUpload"><i class="fa fa-list"></i>&nbsp;</h4>
+                </div>
+                <form class="form-horizontal" method="post" id="formUpload" data-toggle="validator">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" style="width:15%">Template </label>
+                            <div class="col-lg-9" style="width:85%">
+                                <input type="text" id="inpFlag" name="Flag" class="form-control" placeholder="Please Input Name" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" style="width:30%">Budget Owner</label>
+                            <div class="col-lg-9" style="width:85%">
+                                <input type="text" id="inpBudgetOwner" name="Flag" class="form-control" value="@ViewBag.BudgetOwner" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" style="width:15%">Category</label>
+                            <div class="col-lg-9" style="width:85%">
+                                <div id="Categorylist" class="col"></div>
+                                @if (ViewBag.SpendingList != null)
+                                {
+                                    <ul class="d-none">
+                                        @foreach (var item in ViewBag.SpendingList)
+                                        {
+                                            @if (item.Category != "" && item.Category != "-")
+                                            {
+                                                <li>
+                                                    <input type="text" class="document-checklist-textbox" name="@item.Category" value="@item.Category" />
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" style="width: 30% ">Profit Center</label>
+                            <div class="col-lg-9" style="width:85%">
+                                <div id="ProfitCenterlist" class="col"></div>
+                                @if (ViewBag.SpendingList != null)
+                                {
+                                    <ul class="d-none">
+                                        @foreach (var item in ViewBag.SpendingList)
+                                        {
+                                            @if (item.ProfitCenter != "" && item.ProfitCenter != "-")
+                                            {
+                                                <li>
+                                                    <input type="text" class="document-checklist-textbox1" name="@item.ProfitCenter" value="@item.ProfitCenter" />
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                        <div class="form-group" id="divFileMappingRDNDO" style="display:none;">
+                            <label class="col-sm-12 control-label">File Mapping (.xlsx)</label>
+                            <div class="col-lg-9" style="width:85%">
+                                <input type="file" name="fileUploadMapping" id="InputfileMapping" data-val="true" data-val-required="This field is required" required="required" multiple accept=".pdf,.xls,.xlsx">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" style="width:100%">File</label>
+                            <div class="col-lg-9" style="width:85%">
+                                <input type="file" name="fileUpload" id="Inputfile" multiple accept=".pdf,.xls,.xlsx">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer clearfix">
+                        <label class="control-label" style="width:100%;font-weight:bold">*) Maximum upload file size : 10 MB</label>
+                        <button type="button" id="btnUploadExcel" class="btn btn-success"><i class="fa fa-save"></i> Upload</button>
+                        <button type="button" id="btnCancel" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script asp-append-version="true" type="text/javascript" src="~/Excel/exceljs.min.js"></script>
+    <script asp-append-version="true" type="text/javascript" src="~/Excel/FileSaver.min.js"></script>
+    <script asp-append-version="true" src="~/Transaction/Update/SpendingPhasingUpdate.js"></script>
+}
