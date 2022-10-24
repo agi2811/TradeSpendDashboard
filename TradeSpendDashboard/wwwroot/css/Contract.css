@@ -1,0 +1,45 @@
+﻿.customFormGroup {
+    margin-bottom: -1px;
+    margin-top: -6px;
+}
+
+.customSelectFormGroup {
+    margin-bottom: -10px;
+    margin-top: -8px;
+}
+
+.customPeriode {
+    width: 100%;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.customRadio {
+    width: 100%;
+    margin-top: -5px;
+}
+
+.customText {
+    width: 100%;
+    margin-top: -4px;
+}
+
+.modal {
+    padding-right: 0px !important;
+}
+
+#form-detail-item .dx-field-item-label-text {
+    font-weight: 700;
+}
+
+.dx-field-item-label {
+    text-align: right;
+}
+
+#form-detail-item .dx-field-item-label {
+    text-align: left;
+}
+
+.periodeKerjasama {
+    margin-top: -7px;
+}

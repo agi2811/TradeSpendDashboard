@@ -1,0 +1,286 @@
+﻿body[data-sidebar-behavior=sticky] .sidebar-content[js-simplebar] {
+    height: 100vh;
+    position: -webkit-sticky;
+    position: sticky !important;
+    top: 0;
+    left: 0;
+}
+
+/*body {
+    line-height: 1.999;
+}
+*/
+#top-navbar.show-sidebar {
+    margin-left: 260px;
+    transition: margin-left .35s ease-in-out,left .35s ease-in-out,margin-right .35s ease-in-out,right .35s ease-in-out;
+}
+
+#main-content.sidebar-show {
+    margin-left: 260px;
+    transition: margin-left .35s ease-in-out,left .35s ease-in-out,margin-right .35s ease-in-out,right .35s ease-in-out;
+}
+
+#sidebar.fixed-top {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+}
+
+.sidebar-header {
+    padding: 0.5rem 1.5rem .375rem;
+}
+
+.navbar {
+    padding: 0.275rem 1.25rem;
+}
+
+a.sidebar-toggle, a.app-title {
+    color: black;
+    text-decoration: none;
+}
+
+    a.sidebar-toggle, a.app-title::hover {
+        text-decoration: none;
+    }
+
+.content {
+    padding: 1.5rem 2.5rem 1.5rem;
+}
+
+.sidebar-menu-expand {
+    color: red;
+}
+
+
+.dx-header-row {
+    color: white;
+    background: #2d6bcf !important;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2d6bcf), color-stop(1, #0089db)) !important;
+    background: -ms-linear-gradient(bottom, #2d6bcf, #0089db) !important;
+    background: -moz-linear-gradient(center bottom, #2d6bcf 0%, #0089db 100%) !important;
+    background: -o-linear-gradient(#0089db, #2d6bcf) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0089db', endColorstr='#2d6bcf', GradientType=0) !important;
+    color: #fff;
+}
+
+.dx-datagrid-text-content {
+    font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
+    font-size: .780rem;
+    font-weight: 400;
+    line-height: 1.525;
+}
+
+.dx-data-row td {
+    font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
+    font-size: .725rem;
+    font-weight: 400;
+    line-height: 1.525;
+    color: #17a2b8 !important;
+    /*color: #101010 !important;*/
+    /*color: rgba(0,0,0,.87);*/
+}
+
+.dx-dropdowneditor-input-wrapper {
+    height: 27px;
+}
+
+.dx-texteditor-input {
+    font-size: .725rem;
+}
+
+.dx-data-row td {
+    font-family: Poppins,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
+    font-size: 0.675rem;
+    font-weight: 400;
+    line-height: 1.925;
+    color: #6c757d;
+}
+
+.dx-datagrid .dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit-with-icons .dx-link {
+    width: 18px;
+    height: 18px;
+    background-position: 0 0;
+    background-size: 18px 18px;
+    padding: 0;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 18px;
+    margin: 0 3px;
+}
+
+.dx-datagrid .dx-row > td {
+    padding: 3px;
+}
+
+.dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit.dx-command-edit-with-icons {
+    line-height: 1.4;
+    font-size: .725rem;
+    font-weight: 400;
+}
+
+.dx-datagrid-text-content {
+    font-size: .725rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.dx-datagrid .dx-link {
+    color: #1f9bcf;
+}
+
+.dx-datagrid-headers .dx-datagrid-text-content {
+    text-align: center;
+}
+
+.dx-pager {
+    font-size: .625rem;
+}
+
+.dx-toolbar-text-auto-hide .dx-button .dx-button-content {
+    padding: 4px;
+}
+
+.dx-pager {
+    font-size: .625rem;
+}
+
+.dx-info {
+    font-size: .625rem;
+}
+
+footer.footer {
+    padding: .5rem .75rem;
+}
+
+.dx-button {
+    border-radius: 4px;
+    width: 35px;
+}
+
+.dx-datagrid-headers .dx-datagrid-table .dx-row > td {
+    /*    border: 1px solid #2d6bcf;*/
+    text-align: center !important;
+    vertical-align: middle;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .3rem;
+    line-height: 1.150;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    border-color: white;
+}
+
+.dx-texteditor.dx-editor-outlined {
+    border-radius: 4px;
+}
+
+.dx-dropdowneditor-input-wrapper {
+    height: 30px;
+}
+
+.dx-popup-wrapper .dx-calendar .dx-calendar-caption-button {
+    width: 76.2%;
+}
+
+.dx-datagrid-rowsview .dx-row {
+    border-bottom: 1px solid #f3f3f2;
+}
+
+.dx-datagrid-rowsview .dx-selection.dx-row:not(.dx-row-focused) > td, .dx-datagrid-rowsview .dx-selection.dx-row:not(.dx-row-focused) > tr > td, .dx-datagrid-rowsview .dx-selection.dx-row:not(.dx-row-focused):hover > td, .dx-datagrid-rowsview .dx-selection.dx-row:not(.dx-row-focused):hover > tr > td {
+    background-color: #e4e7fb;
+}
+
+.dx-treelist-rowsview .dx-selection.dx-row:not(.dx-row-focused) > td, .dx-treelist-rowsview .dx-selection.dx-row:not(.dx-row-focused) > tr > td, .dx-treelist-rowsview .dx-selection.dx-row:not(.dx-row-focused):hover > td, .dx-treelist-rowsview .dx-selection.dx-row:not(.dx-row-focused):hover > tr > td {
+    background-color: #dedad9;
+}
+
+.dropzone {
+    justify-content: center;
+}
+
+.dx-datagrid-form-buttons-container .dx-button-normal {
+    width: 100px;
+}
+
+.form-group {
+    margin-bottom: 0.25rem !important;
+}
+
+.card {
+    margin-bottom: 10px;
+}
+
+.dx-datagrid-nowrap.dx-datagrid-headers .dx-header-row > td > .dx-datagrid-text-content {
+    white-space: normal;
+}
+
+.dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-scrollable-scrollbar-active, .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-scrollable-scrollbar-active .dx-scrollable-scroll, .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-state-hover, .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-state-hover .dx-scrollable-scroll {
+    height: 6px;
+}
+
+    .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-scrollable-scrollbar-active,
+    .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-scrollable-scrollbar-active .dx-scrollable-scroll,
+    .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-state-hover,
+    .dx-scrollbar-horizontal.dx-scrollbar-hoverable.dx-state-hover .dx-scrollable-scroll {
+        height: 8px;
+    }
+
+input[inputmode=decimal] {
+    text-align: right !important;
+}
+
+input[aria-readonly=true], textarea[aria-readonly=true] {
+    background-color: #e2e8ee;
+}
+
+.dx-box-item-content {
+    font-size: 12px;
+}
+
+.dx-widget {
+    font-size: 12px;
+}
+
+.dx-field-item-required-mark {
+    color: red;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.dx-treelist .dx-row > td {
+    padding: 3px;
+}
+
+.dx-treelist-content .dx-treelist-table .dx-row .dx-command-edit.dx-command-edit-with-icons {
+    line-height: 15px !important;
+}
+
+.dx-datagrid-content .dx-datagrid-table .dx-row .dx-command-edit.dx-command-edit-with-icons {
+    font-size: .735rem;
+}
+
+.sidebar-dropdown .sidebar-link {
+    padding: .55rem 1.5rem .55rem 3.0rem;
+    font-weight: 400;
+    color: #adb5bd;
+}
+
+@media (min-width: 1200px) {
+    .modal-xl {
+        max-width: 1240px !important;
+    }
+}
+
+@media (min-width: 1px) and (max-width: 991.98px) {
+    body:not([data-sidebar-position=right]) .sidebar.collapsed {
+        margin-left: -260px;
+    }
+}
+
+.dx-button-has-icon .dx-button-content {
+    padding: 4px;
+}
